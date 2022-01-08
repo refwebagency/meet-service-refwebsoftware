@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\REF-WEB\\MeetService\\MeetService.csproj": {}
+    "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\meet-service-refwebsoftware\\MeetService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\REF-WEB\\MeetService\\MeetService.csproj": {
+    "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\meet-service-refwebsoftware\\MeetService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\REF-WEB\\MeetService\\MeetService.csproj",
+        "projectUniqueName": "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\meet-service-refwebsoftware\\MeetService.csproj",
         "projectName": "MeetService",
-        "projectPath": "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\REF-WEB\\MeetService\\MeetService.csproj",
+        "projectPath": "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\meet-service-refwebsoftware\\MeetService.csproj",
         "packagesPath": "C:\\Users\\wuill\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\REF-WEB\\MeetService\\obj\\",
+        "outputPath": "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\meet-service-refwebsoftware\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\wuill\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -43,6 +43,32 @@ namespace MeetService.Controllers
             return Ok(_mapper.Map<ReadMeetDTO>(meetItem));
         }
 
+        [HttpGet("user/{id}", Name = "GetMeetByUserId")]
+        public ActionResult<IEnumerable<ReadMeetDTO>> GetMeetByUserId(int id)
+        {
+            var meetItem = _repository.GetMeetByUserId(id);
+
+            if (meetItem == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(_mapper.Map<IEnumerable<ReadMeetDTO>>(meetItem));
+        }
+
+        [HttpGet("client/{id}", Name = "GetMeetByClientId")]
+        public ActionResult<IEnumerable<ReadMeetDTO>> GetMeetByClientId(int id)
+        {
+            var meetItem = _repository.GetMeetByClientId(id);
+
+            if (meetItem == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(_mapper.Map<IEnumerable<ReadMeetDTO>>(meetItem));
+        }
+
         [HttpPost]
         public ActionResult<CreateMeetDTO> CreateMeet(CreateMeetDTO meetDTO)
         {

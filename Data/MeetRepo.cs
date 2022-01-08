@@ -43,6 +43,16 @@ namespace MeetService.Data
             return _context.Meet.ToList();
         }
 
+        public IEnumerable<Meet> GetMeetByUserId(int id)
+        {
+            return _context.Meet.Where(m => m.UserId == id).ToList();
+        }
+
+        public IEnumerable<Meet> GetMeetByClientId(int id)
+        {
+            return _context.Meet.Where(m => m.ClientId == id).ToList();
+        }
+
         public Meet GetMeetById(int id)
         {
             return _context.Meet.FirstOrDefault(Meet => Meet.Id == id);

@@ -12,8 +12,10 @@ namespace MeetService.Models
         [Required]
         public DateTime Date { get; set; }
 
-        // public User
+        [Required]
+        public int UserId   { get; set; }
 
-        // public Client
+        [Required]
+        public int ClientId { get; set; }
     }
 }

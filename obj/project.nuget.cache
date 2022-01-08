@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9eNV6cuUsW/xqLDxt6ThcquiD5iE+G9p/6O3Gq0BgdiC3hR6ay5fcwsMXqaQ+min48J6oI/O5zvfqUPaGah3OA==",
+  "dgSpecHash": "R9ouDTEcOJCTLn9uZB2tT7FJNguVEcFjnPRsi1bt57l26WXMNwIcOxGfuFzcCjMJA/xE2CkvHmoBHoLB5Ijc/g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\REF-WEB\\MeetService\\MeetService.csproj",
+  "projectFilePath": "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\meet-service-refwebsoftware\\MeetService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wuill\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\wuill\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
