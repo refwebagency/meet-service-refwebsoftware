@@ -72,3 +72,4 @@ C:\Users\wuill\OneDrive\Documents\GitHub\meet-service-refwebsoftware\obj\Debug\n
 C:\Users\wuill\OneDrive\Documents\GitHub\meet-service-refwebsoftware\obj\Debug\net5.0\ref\MeetService.dll
 C:\Users\wuill\OneDrive\Documents\GitHub\meet-service-refwebsoftware\obj\Debug\net5.0\MeetService.pdb
 C:\Users\wuill\OneDrive\Documents\GitHub\meet-service-refwebsoftware\obj\Debug\net5.0\MeetService.genruntimeconfig.cache
+C:\Users\wuill\OneDrive\Documents\GitHub\meet-service-refwebsoftware\bin\Debug\net5.0\Newtonsoft.Json.dll

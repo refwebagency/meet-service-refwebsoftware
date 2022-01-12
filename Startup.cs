@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MeetService.Controllers;
 using MeetService.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,6 +33,7 @@ namespace MeetService
             services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("Meet"));
             services.AddScoped<IMeetRepo, MeetRepo>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddHttpClient<MeetController>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

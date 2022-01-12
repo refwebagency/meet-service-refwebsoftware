@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using MeetService.Models;
 
 namespace MeetService.Dtos
 {
@@ -12,5 +13,9 @@ namespace MeetService.Dtos
         public int UserId   { get; set; }
 
         public int ClientId { get; set; }
+
+        public Client Client { get; set; }
+
+        public User User { get; set; }
     }
 }
