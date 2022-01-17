@@ -1,10 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace MeetService.Models
+namespace MeetService.Dtos
 {
-    public class Client
+    public class UserUpdateDto
     {
-        [Key]
         [Required]
         public int Id { get; set; }
 
@@ -24,8 +23,12 @@ namespace MeetService.Models
         public string Email { get; set; }
 
         [Required]
-        public string Company { get; set; }
+        public string Password { get; set; }
 
-        public int MeetId { get; set; }
+        [Required]
+        public int Experience { get; set; }
+
+        [Required]
+        public int SpecializationId { get; set; }
     }
 }

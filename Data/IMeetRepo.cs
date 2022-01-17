@@ -11,11 +11,19 @@ namespace MeetService.Data
 
         IEnumerable<Meet> GetAllMeet();
 
+        IEnumerable<Client> GetAllClient();
+
+        IEnumerable<User> GetAllUser();
+
         Meet GetMeetById(int id);
 
         IEnumerable<Meet> GetMeetByUserId(int id);
 
         IEnumerable<Meet> GetMeetByClientId(int id);
+
+        User GetUserById(int id);
+
+        Client GetClientById(int id);
 
         void UpdateMeetById(int id);
 

@@ -9,10 +9,16 @@ namespace MeetService.Profiles
         public MeetProfile()
         {
             CreateMap<Meet, ReadMeetDTO>();
-            CreateMap<CreateMeetDTO, Meet>()
-                .ForMember(dest => dest.User, opt => opt.Ignore())
-                .ForMember(dest => dest.Client, opt => opt.Ignore());
+            CreateMap<CreateMeetDTO, Meet>();
             CreateMap<UpdateMeetDTO, Meet>();
+
+            CreateMap<Client, ReadClientDTO>();
+            CreateMap<CreateClientDTO, Client>();
+            CreateMap<UpdateClientDTO, Client>();
+
+            CreateMap<User, UserReadDto>();
+            CreateMap<UserCreateDto, User>();
+            CreateMap<UserUpdateDto, User>();
         }
     }
 }

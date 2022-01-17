@@ -40,21 +40,49 @@ namespace MeetService.Data
 
         public IEnumerable<Meet> GetAllMeet()
         {
+            _context.User.ToList();
+            _context.Client.ToList();
             return _context.Meet.ToList();
+        }
+
+        public IEnumerable<User> GetAllUser()
+        {
+            return _context.User.ToList();
+        }
+
+        public IEnumerable<Client> GetAllClient()
+        {
+            return _context.Client.ToList();
+        }
+
+        public User GetUserById(int id)
+        {
+            return _context.User.FirstOrDefault(user => user.Id == id);
+        }
+
+        public Client GetClientById(int id)
+        {
+            return _context.Client.FirstOrDefault(client => client.Id == id);
         }
 
         public IEnumerable<Meet> GetMeetByUserId(int id)
         {
+            _context.User.ToList();
+            _context.Client.ToList();
             return _context.Meet.Where(m => m.UserId == id).ToList();
         }
 
         public IEnumerable<Meet> GetMeetByClientId(int id)
         {
+            _context.User.ToList();
+            _context.Client.ToList();
             return _context.Meet.Where(m => m.ClientId == id).ToList();
         }
 
         public Meet GetMeetById(int id)
         {
+            _context.User.ToList();
+            _context.Client.ToList();
             return _context.Meet.FirstOrDefault(Meet => Meet.Id == id);
         }
 

@@ -10,5 +10,9 @@ namespace MeetService.Data
 
         //On set le model avec le nom de la bdd
         public DbSet<Meet> Meet { get; set; }
+
+        public DbSet<User> User { get; set; }
+
+        public DbSet<Client> Client { get; set; } 
     }
 }

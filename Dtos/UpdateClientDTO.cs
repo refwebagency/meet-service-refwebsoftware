@@ -1,13 +1,12 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace MeetService.Models
+namespace MeetService.Dtos
 {
-    public class Client
+    public class UpdateClientDTO
     {
-        [Key]
         [Required]
         public int Id { get; set; }
-
+        
         [Required]
         public string Name { get; set; }
 
@@ -26,6 +25,6 @@ namespace MeetService.Models
         [Required]
         public string Company { get; set; }
 
-        public int MeetId { get; set; }
+        // public Meet 
     }
 }
