@@ -27,6 +27,9 @@ namespace MeetService.Data
 
         void UpdateMeetById(int id);
 
+        //méthode update client rabbitMQ
+        void UpdateClientById(int id);
+
         void DeleteMeetById(int id);
     }
 }

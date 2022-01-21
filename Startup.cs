@@ -14,6 +14,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MeetService.EventProcessing;
+using MeetService.AsyncDataServices;
 
 namespace MeetService
 {
@@ -35,6 +37,11 @@ namespace MeetService
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddHttpClient<MeetController>();
             services.AddControllers();
+            services.AddHostedService<MessageBusSuscriber>();
+            services.AddTransient<IEventProcessor, EventProcessor>();
+
+
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MeetService", Version = "v1" });

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\meet-service-refwebsoftware\\MeetService.csproj": {}
+    "C:\\Users\\Maxime\\Desktop\\RefWebLogiciel - Services\\meet-service-refwebsoftware\\MeetService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\meet-service-refwebsoftware\\MeetService.csproj": {
+    "C:\\Users\\Maxime\\Desktop\\RefWebLogiciel - Services\\meet-service-refwebsoftware\\MeetService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\meet-service-refwebsoftware\\MeetService.csproj",
+        "projectUniqueName": "C:\\Users\\Maxime\\Desktop\\RefWebLogiciel - Services\\meet-service-refwebsoftware\\MeetService.csproj",
         "projectName": "MeetService",
-        "projectPath": "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\meet-service-refwebsoftware\\MeetService.csproj",
-        "packagesPath": "C:\\Users\\wuill\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\wuill\\OneDrive\\Documents\\GitHub\\meet-service-refwebsoftware\\obj\\",
+        "projectPath": "C:\\Users\\Maxime\\Desktop\\RefWebLogiciel - Services\\meet-service-refwebsoftware\\MeetService.csproj",
+        "packagesPath": "C:\\Users\\Maxime\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Maxime\\Desktop\\RefWebLogiciel - Services\\meet-service-refwebsoftware\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\wuill\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Maxime\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -59,6 +59,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.2.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

@@ -97,5 +97,13 @@ namespace MeetService.Data
 
             _context.Entry(Meet).State = EntityState.Modified;
         }
+
+        //méthode update client rabbitMQ
+        public void UpdateClientById(int id)
+        {
+            var Client = _context.Client.FirstOrDefault(Client => Client.Id == id);
+
+            _context.Entry(Client).State = EntityState.Modified;
+        }
     }
 }
