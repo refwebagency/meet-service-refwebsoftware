@@ -31,5 +31,7 @@ namespace MeetService.Data
         void UpdateClientById(int id);
 
         void DeleteMeetById(int id);
+
+        void DeleteClientById(int id);
     }
 }

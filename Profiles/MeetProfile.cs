@@ -17,6 +17,7 @@ namespace MeetService.Profiles
             CreateMap<UpdateClientDTO, Client>();
             // Partie RabbitMQ
             CreateMap<ClientUpdatedDto, Client>();
+            CreateMap<Client, UpdateClientDTO>();
 
             CreateMap<User, UserReadDto>();
             CreateMap<UserCreateDto, User>();

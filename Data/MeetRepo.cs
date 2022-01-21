@@ -38,6 +38,16 @@ namespace MeetService.Data
             }
         }
 
+        public void DeleteClientById(int id)
+        {
+            var Client = _context.Client.FirstOrDefault(Client => Client.Id == id);
+
+            if (Client != null)
+            {
+                _context.Client.Remove(Client);
+            }
+        }
+
         public IEnumerable<Meet> GetAllMeet()
         {
             _context.User.ToList();

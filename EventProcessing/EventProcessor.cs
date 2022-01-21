@@ -1,8 +1,10 @@
 using System;
 using System.Text.Json;
+using AutoMapper;
 using MeetService.Data;
 using MeetService.Dtos;
 using MeetService.Models;
+using MeetService.Controllers;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace MeetService.EventProcessing
@@ -11,9 +13,12 @@ namespace MeetService.EventProcessing
     {
         private readonly IServiceScopeFactory _scopeFactory;
 
-        public EventProcessor(IServiceScopeFactory scopeFactory)
+        private readonly IMapper _mapper;
+
+        public EventProcessor(IServiceScopeFactory scopeFactory, IMapper mapper)
         {
             _scopeFactory = scopeFactory;
+            _mapper = mapper;
         }
 
         public void ProcessEvent(string message)
@@ -70,25 +75,29 @@ namespace MeetService.EventProcessing
                 try
                 {
                     //Mise à jour du client en setant un new client
-                    // var client = new Client {
-                    //     Id = clientUpdatedDto.Id,
-                    //     Name = clientUpdatedDto.Name,
-                    //     LastName = clientUpdatedDto.LastName,
-                    //     Address = clientUpdatedDto.Address,
-                    //     Phone = clientUpdatedDto.Phone,
-                    //     Email = clientUpdatedDto.Email,
-                    //     Company = clientUpdatedDto.Company,
-                    //     MeetId = clientUpdatedDto.MeetId
+                    var client = new Client {
+                        Id = clientUpdatedDto.Id,
+                        Name = clientUpdatedDto.Name,
+                        LastName = clientUpdatedDto.LastName,
+                        Address = clientUpdatedDto.Address,
+                        Phone = clientUpdatedDto.Phone,
+                        Email = clientUpdatedDto.Email,
+                        Company = clientUpdatedDto.Company,
+                        MeetId = clientUpdatedDto.MeetId
                         
-                    // };
+                    };
 
-                    // Console.WriteLine(client.Name);
+                    Console.WriteLine(clientUpdatedDto.Name);
 
-                    var clientRepo = repo.GetClientById(clientUpdatedDto.Id);
+                    var clientRepo = repo.GetClientById(client.Id);
+                    _mapper.Map(clientUpdatedDto, clientRepo);
+                    
                     // SI le client existe bien on l'update sinon rien
                     if(clientRepo != null)
                     {
-                        repo.UpdateClientById(clientUpdatedDto);
+                        Console.WriteLine(clientRepo.Name);
+                        repo.UpdateClientById(clientRepo.Id);
+                        Console.WriteLine(clientRepo.Name);
                         repo.SaveChanges();
                         Console.WriteLine("--> Client mis à jour");
                     }
