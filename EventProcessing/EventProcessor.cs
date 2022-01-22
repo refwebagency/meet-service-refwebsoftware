@@ -74,30 +74,18 @@ namespace MeetService.EventProcessing
 
                 try
                 {
-                    //Mise à jour du client en setant un new client
-                    var client = new Client {
-                        Id = clientUpdatedDto.Id,
-                        Name = clientUpdatedDto.Name,
-                        LastName = clientUpdatedDto.LastName,
-                        Address = clientUpdatedDto.Address,
-                        Phone = clientUpdatedDto.Phone,
-                        Email = clientUpdatedDto.Email,
-                        Company = clientUpdatedDto.Company,
-                        MeetId = clientUpdatedDto.MeetId
-                        
-                    };
 
-                    Console.WriteLine(clientUpdatedDto.Name);
+                    //Console.WriteLine(clientUpdatedDto.Name);
 
-                    var clientRepo = repo.GetClientById(client.Id);
+                    var clientRepo = repo.GetClientById(clientUpdatedDto.Id);
                     _mapper.Map(clientUpdatedDto, clientRepo);
                     
                     // SI le client existe bien on l'update sinon rien
                     if(clientRepo != null)
                     {
-                        Console.WriteLine(clientRepo.Name);
+                        //Console.WriteLine(clientRepo.Name);
                         repo.UpdateClientById(clientRepo.Id);
-                        Console.WriteLine(clientRepo.Name);
+                        //Console.WriteLine(clientRepo.Name);
                         repo.SaveChanges();
                         Console.WriteLine("--> Client mis à jour");
                     }
