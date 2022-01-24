@@ -115,5 +115,12 @@ namespace MeetService.Data
 
             _context.Entry(Client).State = EntityState.Modified;
         }
+
+        public void UpdateUserById(int id)
+        {
+            var User = _context.User.FirstOrDefault(User => User.Id == id);
+
+            _context.Entry(User).State = EntityState.Modified;
+        }
     }
 }

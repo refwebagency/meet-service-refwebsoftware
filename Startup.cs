@@ -33,6 +33,8 @@ namespace MeetService
         {
             // Ajout du context pour acceder à la base de donnée en local 
             services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("Meet"));
+            services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("Client"));
+            services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("User"));
             services.AddScoped<IMeetRepo, MeetRepo>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddHttpClient<MeetController>();

@@ -99,24 +99,24 @@ namespace MeetService.Controllers
         {
             var meetModel = _mapper.Map<Meet>(meetDTO);
 
-            //var getUser = await _HttpClient.GetAsync("https://localhost:2001/User/" + meetModel.UserId);
+            var getUser = await _HttpClient.GetAsync($"{_configuration["UserService"]}" + meetModel.UserId);
             var getClient = await _HttpClient.GetAsync($"{_configuration["ClientService"]}" + meetModel.ClientId);
 
-            //var deserializeUser = JsonConvert.DeserializeObject<UserCreateDto>(
-                    //await getUser.Content.ReadAsStringAsync());
+            var deserializeUser = JsonConvert.DeserializeObject<UserCreateDto>(
+                    await getUser.Content.ReadAsStringAsync());
 
             var deserializeClient = JsonConvert.DeserializeObject<CreateClientDTO>(
                     await getClient.Content.ReadAsStringAsync());
 
-            //var UserDTO = _mapper.Map<User>(deserializeUser);
+            var UserDTO = _mapper.Map<User>(deserializeUser);
             var ClientDTO = _mapper.Map<Client>(deserializeClient);
 
             var client = _repository.GetClientById(ClientDTO.Id);
-            //var user = _repository.GetUserById(UserDTO.Id);
+            var user = _repository.GetUserById(UserDTO.Id);
 
             if (client == null) meetModel.Client = ClientDTO; else meetModel.Client = client;
 
-            //if (user == null) meetModel.User = UserDTO; else meetModel.User = user;
+            if (user == null) meetModel.User = UserDTO; else meetModel.User = user;
 
             _repository.CreateMeet(meetModel);
             _repository.SaveChanges();

@@ -30,6 +30,8 @@ namespace MeetService.Data
         //méthode update client rabbitMQ
         void UpdateClientById(int id);
 
+        void UpdateUserById(int id);
+
         void DeleteMeetById(int id);
 
         void DeleteClientById(int id);

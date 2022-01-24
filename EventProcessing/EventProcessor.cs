@@ -3,8 +3,6 @@ using System.Text.Json;
 using AutoMapper;
 using MeetService.Data;
 using MeetService.Dtos;
-using MeetService.Models;
-using MeetService.Controllers;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace MeetService.EventProcessing
@@ -31,6 +29,9 @@ namespace MeetService.EventProcessing
                 case EventType.ClientUpdated:
                     UpdateClient(message);
                     break;
+                case EventType.UserUpdated:
+                    UpdateUser(message);
+                    break;
                 default:
                     break;
             }
@@ -53,7 +54,10 @@ namespace MeetService.EventProcessing
                 case "Client_Updated":
                     Console.WriteLine("--> Platform Updated Event Detected");
                     return EventType.ClientUpdated;
-
+                //Dans le cas d'un user
+                case "User_Updated":
+                    Console.WriteLine("--> Platform Updated Event Detected");
+                    return EventType.UserUpdated;
                 // Sinon nous retournons que l'objet est indeterminé
                 default:
                     Console.WriteLine("-> Could not determine the event type");
@@ -78,13 +82,12 @@ namespace MeetService.EventProcessing
                     //Console.WriteLine(clientUpdatedDto.Name);
 
                     var clientRepo = repo.GetClientById(clientUpdatedDto.Id);
+                    
                     _mapper.Map(clientUpdatedDto, clientRepo);
                     
                     // SI le client existe bien on l'update sinon rien
                     if(clientRepo != null)
                     {
-                        //Console.WriteLine(clientRepo.Name);
-                        repo.UpdateClientById(clientRepo.Id);
                         //Console.WriteLine(clientRepo.Name);
                         repo.SaveChanges();
                         Console.WriteLine("--> Client mis à jour");
@@ -100,12 +103,50 @@ namespace MeetService.EventProcessing
                 }
             }
         }
+
+        private void UpdateUser(string userUpdatedMessage)
+        {
+            using(var scope = _scopeFactory.CreateScope())
+            {
+                // Recuperation du scope de meetRepo
+                var repo = scope.ServiceProvider.GetRequiredService<IMeetRepo>();
+
+                //On deserialize le userUpdatedMessage
+                var userUpdatedDto = JsonSerializer.Deserialize<UserUpdatedDto>(userUpdatedMessage);
+                Console.WriteLine($"--> User Updated: {userUpdatedDto}");
+
+                try
+                {
+                    var userRepo = repo.GetUserById(userUpdatedDto.Id);
+                    Console.WriteLine(userRepo.Name);
+                    _mapper.Map(userUpdatedDto, userRepo);
+                    
+                    // SI le user existe bien on l'update sinon rien
+                    if(userRepo != null)
+                    {
+
+                        repo.UpdateUserById(userRepo.Id);                     
+                        repo.SaveChanges();
+                        Console.WriteLine("--> User mis à jour");
+                    }
+                    else{
+                        Console.WriteLine("--> User non existant");
+                    }
+                }
+                // Si une erreur survient, on affiche un message
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"--> Could not update User to DB {ex.Message}");
+                }
+            }
+        }
     }
 
     //Type d'event
     enum EventType
     {
         ClientUpdated,
+        UserUpdated,
         Undetermined
     }
 }

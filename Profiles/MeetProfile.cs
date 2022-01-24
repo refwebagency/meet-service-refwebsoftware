@@ -19,6 +19,9 @@ namespace MeetService.Profiles
             CreateMap<ClientUpdatedDto, Client>();
             CreateMap<Client, UpdateClientDTO>();
 
+            CreateMap<UserUpdatedDto, User>();
+            CreateMap<User, UserUpdateDto>();
+
             CreateMap<User, UserReadDto>();
             CreateMap<UserCreateDto, User>();
             CreateMap<UserUpdateDto, User>();
